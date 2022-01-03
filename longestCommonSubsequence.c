@@ -11,6 +11,7 @@ void calculateLCS(char *path1, char *path2, char *path3) {
     int dim1 = calcolaDim(path1);
     char* sequence2=read(path2);
     int dim2 = calcolaDim(path2);
+
     //Alloco il vettore delle righe della matrice in cui ogni elemento è un puntatore
     int **matrix=(int **) malloc((dim1+1) * sizeof (int*));
     if(matrix==NULL){
@@ -20,10 +21,11 @@ void calculateLCS(char *path1, char *path2, char *path3) {
     //Per ogni riga alloco dim2 colonne
     for(int i=0;i<dim1+1;i++)
         matrix[i]=(int *) malloc((dim2+1) * sizeof (int));
-    lcsLength(dim1,dim2,sequence1,sequence2,matrix);
 
+
+
+    lcsLength(dim1,dim2,sequence1,sequence2,matrix);
     int index = matrix[dim1][dim2];
-    //Alloco il puntatore che conterrà la soluzione
     char *lcs = (char *) malloc(sizeof(char) * (index + 1));
     if(lcs==NULL){
         perror("Errore durante la creazione dell'array soluzione");
@@ -31,7 +33,6 @@ void calculateLCS(char *path1, char *path2, char *path3) {
     }
     lcs[index] = '\0';
     long i = dim1, j = dim2;
-
     while (i > 0 && j > 0) {
         //I caratteri confrontati sono uguali, mi muovo diagonalmente lungo la matrice
         if (sequence1[i - 1] == sequence2[j - 1]) {

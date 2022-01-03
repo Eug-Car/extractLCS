@@ -4,7 +4,10 @@
 #include <stdio.h>
 #include "longestCommonSubsequence.h"
 int main(int argc, char **argv) {
-
+    if((strcmp(argv[1],argv[2])==0) ||( strcmp(argv[1],argv[3])==0)|| (strcmp(argv[2],argv[3])==0)){
+        printf("Due dei parametri passati sono uguali\n");
+        return 0;
+    }
     if (argc==2 && (strcmp(argv[1],"-h")==0 || strcmp(argv[1],"--help")==0)){
         printf("Inserire dopo il comando './extractlcs' i path(assoluti o relativi) dei file dai "
                "quali estrarre la Longest Common Subsequence seguiti dal path(assoluto o relativo) dove si vuole generare il file \n"
