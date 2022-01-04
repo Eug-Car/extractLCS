@@ -34,7 +34,7 @@ void calculateLCS(char *path1, char *path2, char *path3) {
     lcs[index] = '\0';
     long i = dim1, j = dim2;
     while (i > 0 && j > 0) {
-        //I caratteri confrontati sono uguali, mi muovo diagonalmente lungo la matrice
+        //I caratteri confrontati sono uguali, mi muovo diagonalmente lungo la matrice e i caratteri uguali in lcs
         if (sequence1[i - 1] == sequence2[j - 1]) {
             lcs[index - 1] = sequence1[i - 1];
             i--;
@@ -51,6 +51,9 @@ void calculateLCS(char *path1, char *path2, char *path3) {
     write(path3, lcs);
     free(sequence1);
     free(sequence2);
+    for(int p=0;p<dim2+1;p++){
+        free(matrix[p]);
+    }
     free(matrix);
     free(lcs);
 }
