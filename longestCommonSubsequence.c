@@ -1,23 +1,22 @@
 
 
 #include <stdlib.h>
-#include <stdio.h>
 #include "readAndWrite.h"
 #include "longestCommonSubsequence.h"
 
 void calculateLCS(char *path1, char *path2, char *path3) {
-
     char* sequence1=read(path1);
     int dim1 = calcolaDim(path1);
+
     char* sequence2=read(path2);
     int dim2 = calcolaDim(path2);
 
     //Alloco il vettore delle righe della matrice in cui ogni elemento è un puntatore
     int **matrix=(int **) malloc((dim1+1) * sizeof (int*));
-    if(matrix==NULL){
+ /*   if(matrix==NULL){
         perror("Errore durante la creazione della matrice");
         exit(1);
-    }
+    }*/
     //Per ogni riga alloco dim2 colonne
     for(int i=0;i<dim1+1;i++)
         matrix[i]=(int *) malloc((dim2+1) * sizeof (int));
@@ -27,10 +26,10 @@ void calculateLCS(char *path1, char *path2, char *path3) {
     lcsLength(dim1,dim2,sequence1,sequence2,matrix);
     int index = matrix[dim1][dim2];
     char *lcs = (char *) malloc(sizeof(char) * (index + 1));
-    if(lcs==NULL){
+   /* if(lcs==NULL){
         perror("Errore durante la creazione dell'array soluzione");
         exit(1);
-    }
+    }*/
     lcs[index] = '\0';
     long i = dim1, j = dim2;
     while (i > 0 && j > 0) {
@@ -49,9 +48,8 @@ void calculateLCS(char *path1, char *path2, char *path3) {
             j--;
     }
     write(path3, lcs);
-    free(sequence1);
-    free(sequence2);
-    for(int p=0;p<dim2+1;p++){
+
+   for(int p=0;p<dim1;p++){
         free(matrix[p]);
     }
     free(matrix);

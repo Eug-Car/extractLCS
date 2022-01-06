@@ -1,19 +1,17 @@
-
-
 #include <string.h>
 #include <stdio.h>
 #include "longestCommonSubsequence.h"
 int main(int argc, char **argv) {
     if(strcmp(argv[1],argv[2])==0){
-        printf("Il primo e secondo parametro sono uguali!\n");
+        printf("Il primo e secondo file sono uguali!\n");
         return 0;
     }
     if( strcmp(argv[1],argv[3])==0){
-        printf("Il secondo e quarto parametro passati sono uguali!\n");
+        printf("Il primo e il terzo file sono uguali!\n");
         return 0;
     }
     if( strcmp(argv[2],argv[3])==0){
-        printf("Il terzo e quarto parametro sono uguali!\n");
+        printf("Il secondo e il terzo file sono uguali!\n");
         return 0;
     }
 
