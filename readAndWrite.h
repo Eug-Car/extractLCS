@@ -1,27 +1,27 @@
 #ifndef LCS_READANDWRITE_H
 #define LCS_READANDWRITE_H
 
-
-/**
- * Metodo usato per leggere un file e salvare il contenuto in un array
- * @param path Path del file di cui si vuole leggere il contenuto
- * @return Restituisce un' array che contenente il file
- */
-char * read(char * );
-
-
-/**
- * Metodo usato per scrivere su file il contenuto di un puntatore
- */
-void write(char *,char *);
-
-
 /**
  * Calcola la dimensione del file passato in input
  * @param path Path del file di cui si vuole calcolare la dimensione
- * @return  La dimensione del file
+ * @return La dimensione del file
  */
-int calcolaDim(char *);
+long calcolaDim(char * path);
+
+
+/**
+ * Legge il contenuto di un file e lo salva
+ * @param path Path del file di cui si vuole leggere il contenuto
+ * @return Il contenuto del file
+ */
+char * read(char * path);
+
+/**
+ * Scrive su file il contenuto di un array
+ * @param path Path del file dove scrivere i dati
+ * @param res Array contenente i dati da scrivere
+ */
+void write(char * path,char * res);
 
 
 #endif //LCS_READANDWRITE_H

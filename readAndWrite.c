@@ -5,14 +5,14 @@
 #include <stdlib.h>
 #include "readAndWrite.h"
 
-int calcolaDim(char *path) {
+long calcolaDim(char *path) {
     FILE *file= fopen(path,"rb");
     if(file==NULL){
         perror("Errore durante il calcolo della grandezza del file");
         exit(1);
     }
     fseek(file,0,SEEK_END);
-    int dim= (int) ftell(file);
+    long dim= ftell(file);
     fclose(file);
     return dim;
 }
@@ -24,7 +24,7 @@ char* read(char *path){
         perror("Errore durante la lettura");
         exit(1);
     }
-    int dim=calcolaDim(path);
+    long dim=calcolaDim(path);
     char *tmp=(char* ) malloc(sizeof (char) * (dim+1));
     fread(tmp,sizeof(char),dim,file);
     tmp[dim]= '\0';
@@ -41,7 +41,7 @@ void write(char *path, char* res){
     }
     fwrite(res,sizeof(char),dim,file);
     fclose(file);
-}
 
+}
 
 

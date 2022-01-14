@@ -3,15 +3,15 @@
 #include "longestCommonSubsequence.h"
 int main(int argc, char **argv) {
     if(strcmp(argv[1],argv[2])==0){
-        printf("Il primo e secondo file sono uguali!\n");
+        printf("Hai passato 2 file uguali come primo e secondo parametro!\n");
         return 0;
     }
     if( strcmp(argv[1],argv[3])==0){
-        printf("Il primo e il terzo file sono uguali!\n");
+        printf("Hai passato 2 file uguali come primo e terzo parametro\n");
         return 0;
     }
     if( strcmp(argv[2],argv[3])==0){
-        printf("Il secondo e il terzo file sono uguali!\n");
+        printf("Hai passato 2 file uguali come secondo e terzo parametro\n");
         return 0;
     }
 
